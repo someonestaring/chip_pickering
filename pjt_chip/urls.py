@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app_chip.views import *
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 urlpatterns = [
+    path('', index, name='index'),
+    path('resume/', resume, name='resume'),
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

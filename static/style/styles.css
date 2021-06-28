@@ -1,0 +1,65 @@
+body{
+    background-color: slategrey;
+    text-align: center;
+}
+img{
+    width: 50%;
+    height: 50%;
+    border-radius: 35%;
+    border-style: double;
+    border-color: aliceblue;
+    box-shadow: 6px 6px 6px 5px teal;
+
+    /* border-radius: 35; */
+}
+p{
+    text-align: center;
+    /* width: 75%; */
+}
+header{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+}
+.header_left{
+    align-self: flex-start;
+    
+}
+.header_right{
+    align-self: flex-end;
+}
+.section_sep{
+    font-size: large;
+    font-style: oblique;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#skills{
+    display: flex;
+    justify-content: space-around;
+}
+#frameworks{
+    align-self: flex-start;
+}
+#languages{
+    align-self: flex-end;
+}
+#certs{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+#front_p{
+    align-self: flex-start;
+    box-shadow: none;
+    /* height: 20%; */
+    /* width: 100px; */
+}
+#full_p{
+    box-shadow: none;
+    align-self: flex-end;
+    /* height: 20%; */
+    /* width: 20px; */
+}
