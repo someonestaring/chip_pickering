@@ -1,12 +1,13 @@
 {% load static %}
 <link type='text/css' rel="stylesheet" href="{% static 'style/styles.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a href="/">home</a>
 
 <header>
     <div id="header_left">
         <h1 id="header_title">Chip Pickering</h1>
-        <h5 id="header_subtitle">Software Engineer</h5>
-        <p id="header_para"></p>
+        <h4 id="header_subtitle">Full Stack Software Engineer</h5>
+        <div id="header_para">I just want to make the world a better place. As time goes on and on, so too does the Evolution of Technology. I have decided I want to be an instrumental part of the process. Though I have mastered my own techniques of learning, I am young in my technical experience. I am looking for my opportunity.</div>
     </div>
     <div id="header_right">
         <p id="email_p"><i class="fa fa-envelope-square"></i> c.pick.coding@gmail.com</p>
@@ -16,8 +17,8 @@
                     class="fa fa-linkedin-square"></i> chip_pickering</a></p>
     </div>
 </header>
-<hr>
 <div class="section_sep">
+    <hr>
     <hr>
     <h3>Skills</h3>
     <hr>
@@ -45,22 +46,44 @@
     <hr>
     <h3>Work Experience</h3>
     <hr>
-    <p id="exp_p"></p>
+    <div id="exp_cont">
+        <div id='exp_p'>Prior to technological endeavors, I became fully agile within the realms of Die Cast Machine Operation, Universal Maintanence, and Professional Pet Styling. We can discuss those areas if we have a few spare minutes. As I said, I'm relatively new to the industry, so I don't have a whole lot of work to show beyond school projects. Here are some links if you are interested:</div>
+        <div id="exp_ul">
+            <ul>
+                <li>
+                    <a href="https://seroful.tech">Seroful</a>
+                     - A safe place for the like-minded
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/hungerswipe">HungerSwipe</a>
+                    - Swipe right to your next restaurant destination for a new way of eating with friends! Coming soon in 2021!
+                </li>
+                <li>We can explore undeployed projects upon request</li>
+            </ul>
+        </div>
+    </div>
 </div>
-<div class="section_sep">
+<div id="edu_sep">
     <hr>
     <h3>Education</h3>
     <hr>
     <div id="certs">
-        <p><image id="front_p" src="{% static 'images/Pickering III, Ralph E (1).png' %}"></i></p>
-        <p><image id="full_p" src="{% static 'images/Ralph_Pickering_FULL STACK WEB DEVELOPMENT-1.png' %}"></i></p>
-
+        <img id="front_p" src="{% static 'images/Pickering III, Ralph E (1).png' %}" />
+        <img id="full_p" src="{% static 'images/Ralph_Pickering_FULL STACK WEB DEVELOPMENT-1.png' %}" />
     </div>
 </div>
 <div class="section_sep">
     <hr>
     <h3>Organizations</h3>
-    <p id="orgs_p"></p>
+    <div id="org_cont">
+        <div id="org_ul">
+            <ul>
+                <li>Kenzie Academy</li>
+                <li>HungerSwipe Inc.</li>
+                <li>Myself!!</li>
+            </ul>
+        </div>
+    </div>
     <hr>
     <hr>
 </div>
