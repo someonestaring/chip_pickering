@@ -7,6 +7,7 @@ authors = ["chip_pickering <mykeyworks.2113@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "^3.2.4"
+netifaces = "^0.11.0"
 
 [tool.poetry.dev-dependencies]
 

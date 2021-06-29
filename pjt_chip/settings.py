@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
+import os
+import netifaces
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +24,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4+jqqof#gi$bc3#6p@syyp574bz#(e27qmv9n_xa27ml%e&b-t'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['*']
+def ip_addresses():
+    ip_list = []
+    for interface in netifaces.interfaces():
+        addrs = netifaces.ifaddresses(interface)
+        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+            if x in addrs:
+                ip_list.append(addrs[x][0]['addr'])
+    return ip_list
+
+ALLOWED_HOSTS = ip_addresses()
+
+#os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1.localhost").split(",")
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
@@ -79,13 +94,29 @@ WSGI_APPLICATION = 'pjt_chip.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+#if os.getenv("DATABASE_URL", "") != '':
+#	r = urlparse(os.environ.get("DATABASE_URL"))
+#	DATABASES = {
+#		'default': {
+#			'ENGINE': 'django.backends.postgresql_psycopg2',
+#			'NAME': os.path.relpath(r.path, "/"),
+#			'USER': r.username,
+#			'PASSWORD': r.password,
+#			'HOST': r.hostname,
+#			'PORT': r.port,
+#			'OPTIONS': {'sslmode': 'require'},
+#		},
+#	}
+#else:
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+	'default': {
+		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		'NAME': 'django',
+		'USER': 'django',
+		'PASSWORD': '29cbd5ce680cb99c2eb84a17d96518e0',
+		'HOST': 'localhost',
+		'PORT': '',
+	}
 
 
 # Password validation
@@ -125,7 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 EMAIL_HOST = 'smtp.gmail.com'
