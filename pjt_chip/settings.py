@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True";
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
 
 def ip_addresses():
     ip_list = []
@@ -36,11 +37,12 @@ def ip_addresses():
         for x in (netifaces.AF_INET, netifaces.AF_INET6):
             if x in addrs:
                 ip_list.append(addrs[x][0]['addr'])
-    return ip_list;
+    return ip_list
 
-ALLOWED_HOSTS = ip_addresses();
 
-#os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1.localhost").split(",")
+ALLOWED_HOSTS = ip_addresses()
+
+# os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1.localhost").split(",")
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
@@ -94,7 +96,7 @@ WSGI_APPLICATION = 'pjt_chip.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-#if os.getenv("DATABASE_URL", "") != '':
+# if os.getenv("DATABASE_URL", "") != '':
 #	r = urlparse(os.environ.get("DATABASE_URL"))
 #	DATABASES = {
 #		'default': {
@@ -107,7 +109,7 @@ WSGI_APPLICATION = 'pjt_chip.wsgi.application'
 #			'OPTIONS': {'sslmode': 'require'},
 #		},
 #	}
-#else:
+# else:
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -116,7 +118,7 @@ DATABASES = {
 		'PASSWORD': '29cbd5ce680cb99c2eb84a17d96518e0',
 		'HOST': 'localhost',
 		'PORT': '',
-	};
+	}
 
 
 # Password validation
@@ -135,38 +137,38 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-];
+]
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us';
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC';
+TIME_ZONE = 'UTC'
 
-USE_I18N = True;
+USE_I18N = True
 
-USE_L10N = True;
+USE_L10N = True
 
-USE_TZ = True;
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/';
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles');
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-EMAIL_HOST = 'smtp.gmail.com';
-EMAIL_PORT = 465;
-EMAIL_HOST_USER = 'c.pick.coding@gmail.com';
-EMAIL_HOST_PASSWORD = 'chipcodes';
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'c.pick.coding@gmail.com'
+EMAIL_HOST_PASSWORD = 'chipcodes'
 # EMAIL_USE_TLS = True;
-EMAIL_USE_SSL = True;
+EMAIL_USE_SSL = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField';
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
