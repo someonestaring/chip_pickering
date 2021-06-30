@@ -40,7 +40,7 @@ def ip_addresses():
     return ip_list
 
 
-ALLOWED_HOSTS = ['147.182.139.40', 'chip.pickering']
+ALLOWED_HOSTS = ['147.182.139.40', 'chipperton.codes']
 
 # os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1.localhost").split(",")
 
