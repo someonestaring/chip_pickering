@@ -40,7 +40,7 @@ def ip_addresses():
     return ip_list
 
 
-ALLOWED_HOSTS = ip_addresses()
+ALLOWED_HOSTS = ['147.182.139.40', 'chip.pickering']
 
 # os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1.localhost").split(",")
 
@@ -113,9 +113,9 @@ WSGI_APPLICATION = 'pjt_chip.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'django',
-		'USER': 'django',
-		'PASSWORD': '29cbd5ce680cb99c2eb84a17d96518e0',
+		'NAME': 'chip_pickering',
+		'USER': 'chip_pickering',
+		'PASSWORD': os.environ.get('DB_PASSWORD'),
 		'HOST': 'localhost',
 		'PORT': '',
 	}
