@@ -110,12 +110,13 @@ WSGI_APPLICATION = 'pjt_chip.wsgi.application'
 #		},
 #	}
 # else:
+passwrd = os.environ.get("DB_PASSWORD")
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'chip_pickering',
-		'USER': 'chip_pickering',
-		'PASSWORD': os.environ.get('DB_PASSWORD'),
+		'NAME': 'django',
+		'USER': 'django',
+		'PASSWORD': '29cbd5ce680cb99c2eb84a17d96518e0',
 		'HOST': 'localhost',
 		'PORT': '',
 	}
