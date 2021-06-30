@@ -8,6 +8,8 @@ authors = ["chip_pickering <mykeyworks.2113@gmail.com>"]
 python = "^3.9"
 Django = "^3.2.4"
 netifaces = "^0.11.0"
+gunicorn = "^20.1.0"
+psycopg2-binary = "^2.9.1"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.5.7"
